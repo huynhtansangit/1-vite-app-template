@@ -1,29 +1,54 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Card from "../UI/Card/Card";
 import styles from "./AddUser.module.scss";
 import Button from "../UI/Button/Button";
 const AddUser = () => {
-    const [enteredUsername, setEnteredUsername] = useState('');
-    const [enteredAge, setEnteredAge] = useState('');
-
+  const [enteredUsername, setEnteredUsername] = useState("");
+  const [enteredAge, setEnteredAge] = useState("");
 
   const addUserHandler = (event) => {
     event.preventDefault();
-    console.log(enteredUsername,enteredAge)
+    if (validateInput()) {
+      console.log(enteredUsername, enteredAge);
+      resetForm();
+    }
+    return;
   };
-  const usernameChangeHandler=(event)=>{
+  const resetForm = () => {
+    setEnteredAge("");
+    setEnteredUsername("");
+  };
+  const validateInput = () => {
+    if (enteredAge.trim().length === 0 || enteredUsername.trim().length === 0)
+      return false;
+    if (+enteredAge < 1) return false;
+    return true;
+  };
+  const usernameChangeHandler = (event) => {
     setEnteredUsername(event.target.value);
-  }
-  const ageChangeHandler=(event)=>{
+  };
+  const ageChangeHandler = (event) => {
     setEnteredAge(event.target.value);
-  }
+  };
   return (
     <Card className={styles.input}>
       <form onSubmit={addUserHandler}>
         <label htmlFor="username">Username</label>
-        <input type="text" name="username" id="username" onChange={usernameChangeHandler}/>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          onChange={usernameChangeHandler}
+          value={enteredUsername}
+        />
         <label htmlFor="age">Age</label>
-        <input type="number" name="age" id="age" onChange={ageChangeHandler}/>
+        <input
+          type="number"
+          name="age"
+          id="age"
+          onChange={ageChangeHandler}
+          value={enteredAge}
+        />
         <Button type="submit">Submit</Button>
       </form>
     </Card>
