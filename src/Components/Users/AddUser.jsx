@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import Card from "../UI/Card/Card";
 import styles from "./AddUser.module.scss";
 import Button from "../UI/Button/Button";
-const AddUser = () => {
+const AddUser = (props) => {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
 
   const addUserHandler = (event) => {
     event.preventDefault();
     if (validateInput()) {
-      console.log(enteredUsername, enteredAge);
+      props.onAddUser(enteredUsername, enteredAge);
       resetForm();
     }
     return;
