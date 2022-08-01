@@ -1,10 +1,11 @@
+import { Fragment } from 'react';
 import './Main.scss'
 
 const Main =(props)=>{
     const classes = 'main '+ props.className
-    return <div className={classes}>
+    return <Fragment className={classes}>
         {props.children}
-    </div>
+    </Fragment>
 }
 
 export default Main;
