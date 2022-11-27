@@ -1,0 +1,14 @@
+$primary:#627A30;
+$secondary:#DAAD86;
+$textColor1:#B4C195;
+$textColor2:#FFFFFF;
+$white:#fff;
+$black:#000;
+$wrapper:1440px;
+// ----------
+body, html{
+  line-height: 1;
+  font-family: 'Ubuntu', sans-serif !important;
+  color: $textColor1;
+  font-weight: 400;
+}

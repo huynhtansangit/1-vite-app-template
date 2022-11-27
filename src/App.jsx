@@ -1,13 +1,13 @@
-import logo from './logo.svg'
-import './App.css'
-import './Layouts/Main/Main'
+import logo from "./logo.svg";
+import "./Layouts/Main/Main";
+import Header from "./Layouts/Header/Header";
+import "./App.scss"
 function App() {
-
   return (
-    <Main>
-
-    </Main>
-  )
+    <>
+      <Header></Header>
+    </>
+  );
 }
 
-export default App
+export default App;
